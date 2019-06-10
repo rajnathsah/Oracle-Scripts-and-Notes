@@ -1,2 +1,3 @@
-# Oracle-Scripts-and-Notes
-Useful oracle script and notes
+# Oracle scripts and notes
+
+This repository will have oracle scripts and notes 
