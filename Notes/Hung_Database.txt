@@ -1,0 +1,22 @@
+Points to check when database is hung
+1. Check your alert log to see if the database has reported any errors, which may indicate why
+the database is hanging.
+2. See if you can get an AWR or ASH report or query some of the ASH views, as explained in
+Chapter 5. You may notice events such as hard parses at the top of the Load Profile section
+of the AWR report, indicating that this is what is slowing down the database.
+3. A single ad hoc query certainly has the potential to bring an entire database to its knees.
+See if you can identify one or more very poorly performing SQL statements that may be
+leading to the hung (or a very poorly performing) database.
+4. Check the database for blocking locks as well as latch contention.
+5. Check the server’s memory usage as well as CPU usage. Make sure the sessions aren’t
+stalling because you’ve sized the PGA too low, as explained in Chapter 3.
+6. Don’t overlook the fact that a scary-looking database hang may be caused by something as
+simple as the filling up of all archive log destinations. If the archive destination is full, the
+database will hang, and new user connections will fail. You can, however, still connect as
+the SYS user, and once you make room in the archive destination by moving some of the
+archived redo log files, the database becomes accessible to the users.
+7. Check the Flash Recovery Area (FRA). A database also hangs when it’s unable to write
+Flashback Database logs to the recovery area. When the FRA fills up, the database won’t
+process new work and it won’t spawn new database connections. You can fix this problem
+by making the recovery area larger with the alter system set db_recovery_file_dest_size
+command.
