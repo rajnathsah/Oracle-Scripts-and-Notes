@@ -6,6 +6,3 @@ create table sales_det(
 )
 /
 
-
--- sql loader command 
-sqlldr control=Sample.ctl log=export.log, bad=export.bad, data=export.csv userid=hr/hr@pdborcl, discard=export.dsc
