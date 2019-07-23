@@ -1,4 +1,4 @@
-1. Create a directory and place .ctl and csv file
+1. Create a directory and place .ctl and .csv file
 
 2. Using table creation script create table
 
