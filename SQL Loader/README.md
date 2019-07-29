@@ -18,11 +18,8 @@ sqlldr control=Sample.ctl log=export.log, bad=export.bad, data=export.csv userid
 ```
 7. Restriction on parallel load:- 
   1.Indexes are not maintained when a parallel direct path load is performed. You will need to rebuild all indexes on the table being         loaded   after the load is complete.
-
-  2. There is no communication between the concurrent load sessions. Therefore, you can only append rows to a table. The TRUNCATE,              REPLACE,     and INSERT options of SQL*Loader cannot be used for a parallel direct path load.
-
+  2. There is no communication between the concurrent load sessions. Therefore, you can only append rows to a table. The TRUNCATE,              REPLACE and INSERT options of SQL*Loader cannot be used for a parallel direct path load.
   3. All referential integrity and CHECK constraints on the table being loaded must be disabled for the duration of the load.
-
   4. All triggers on the table being loaded must be disabled for the duration of the load.
 
 Happy learning
