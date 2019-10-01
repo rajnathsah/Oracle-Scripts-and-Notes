@@ -7,4 +7,10 @@
 
 
 ## Nested tables
-Nested tables hold a random number of elements. It uses sequential numbers as subscripts. It can be stored into database by defining equivalent sql types. Nested tables can be considered as one column databases tables. Initially nested tables are dense like array but it allows us to delete item in between using the procedure DELETE which can leave gaps in between. In order to iterate through elements we use built in function NEXT. In other word nested tables are like arrays with exception, nested tables are unbounded and allows us to delete item in between.  
+1. Nested tables hold a random number of elements.   
+2. It uses sequential numbers as subscripts.  
+3. It can be stored into database by defining equivalent sql types.  
+4. Nested tables can be considered as one column databases tables.  
+5. Initially nested tables are dense like array but it allows us to delete item in between using the procedure DELETE which can leave gaps in between.  
+6. In order to iterate through elements we use built in function NEXT.  
+7. In other word nested tables are like arrays with exception, nested tables are unbounded and allows us to delete item in between.   
