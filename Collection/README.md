@@ -15,4 +15,4 @@
 6. In order to iterate through elements we use built in function NEXT.  
 7. In other word nested tables are like arrays with exception, nested tables are unbounded and allows us to delete item in between. 
 
-For example check the script (Nested Table)[https://github.com/rajnathsah/Oracle-Scripts-and-Notes/blob/master/Collection/nestedtable_example.sql]  
+For example check the script [Nested Table](https://github.com/rajnathsah/Oracle-Scripts-and-Notes/blob/master/Collection/nestedtable_example.sql)
