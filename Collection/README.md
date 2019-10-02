@@ -30,3 +30,7 @@ An associative array (formerly called PL/SQL table or index-by table) is a set o
 3. The data type of index can be either a string type or PLS_INTEGER. Indexes are stored in sort order, not creation order. For string types, sort order is determined by the initialization parameters NLS_SORT and NLS_COMP.
 4. It can be used for a relatively small lookup table, which can be constructed in memory each time you invoke the subprogram or initialize the package that declares it
 5. It can also be used for passing collections to and from the database server
+
+Example code can be seen on [Associative Array](https://github.com/rajnathsah/Oracle-Scripts-and-Notes/blob/master/Collection/associative_array.sql)  
+
+For more detail, please refer official Oracle documentation of [associative array](https://docs.oracle.com/cd/E11882_01/appdev.112/e25519/composites.htm#LNPLS99969)
