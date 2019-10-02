@@ -17,7 +17,7 @@ A nested table is a column type that stores an unspecified number of rows in no 
 6. In order to iterate through elements we use built in function NEXT.  
 7. In other word nested tables are like arrays with exception, nested tables are unbounded and allows us to delete item in between. 
 
-For example check the [Nested Table](https://github.com/rajnathsah/Oracle-Scripts-and-Notes/blob/master/Collection/nestedtable_example.sql) script.  
+Example code [Nested Table](https://github.com/rajnathsah/Oracle-Scripts-and-Notes/blob/master/Collection/nestedtable.sql) script.  
 
 For more detail, please refer official Oracle documentation of [nested table](https://docs.oracle.com/cd/E11882_01/appdev.112/e25519/composites.htm#LNPLS99981)  
 
@@ -31,7 +31,7 @@ An associative array (formerly called PL/SQL table or index-by table) is a set o
 4. It can be used for a relatively small lookup table, which can be constructed in memory each time you invoke the subprogram or initialize the package that declares it
 5. It can also be used for passing collections to and from the database server
 
-Example code can be seen on [Associative Array](https://github.com/rajnathsah/Oracle-Scripts-and-Notes/blob/master/Collection/associative_array.sql)  
+Example code [Associative Array](https://github.com/rajnathsah/Oracle-Scripts-and-Notes/blob/master/Collection/associative_array.sql)  
 
 For more detail, please refer official Oracle documentation of [associative array](https://docs.oracle.com/cd/E11882_01/appdev.112/e25519/composites.htm#LNPLS99969)
 
@@ -43,3 +43,6 @@ A varray (variable-size array) is an array whose number of elements can vary fro
 2. They use sequential number as subscript and like nested table varrays can also be stored in database by defining equivalent sql types. 
 3. Elements can not be deleted in between varray and because of that it remain dense.
 
+Example code [Varray](https://github.com/rajnathsah/Oracle-Scripts-and-Notes/blob/master/Collection/varray.sql)
+
+For more detail, please refer official Oracle documentation of [varray](https://docs.oracle.com/cd/E11882_01/appdev.112/e25519/composites.htm#LNPLS443)  
