@@ -45,3 +45,5 @@ sqlldr control=Sample.ctl log=export.log, bad=export.bad, data=export.csv userid
     4. All triggers on the table being loaded must be disabled for the duration of the load.
 
 Happy learning
+
+For more details, Please refer [SQL *Loader](https://docs.oracle.com/en/database/oracle/oracle-database/18/sutil/oracle-sql-loader-concepts.html#GUID-DD843EE2-1FAB-4E72-A115-21D97A501ECC) documentation.
