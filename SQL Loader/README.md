@@ -1,3 +1,25 @@
+# SQL *Loader
+
+SQL*Loader loads data from external files into tables of an Oracle database.
+
+It has a powerful data parsing engine that puts little limitation on the format of the data in the data file. You can use SQL*Loader to do the following:
+
+1. Load data across a network if your data files are on a different system than the database.
+2. Load data from multiple data files during the same load session.
+3. Load data into multiple tables during the same load session.
+4. Specify the character set of the data.
+5. Selectively load data (you can load records based on the records' values).
+6. Manipulate the data before loading it, using SQL functions.
+7. Generate unique sequential key values in specified columns.
+8. Use the operating system's file system to access the data files.
+9. Load data from disk, tape, or named pipe.
+10. Generate sophisticated error reports, which greatly aid troubleshooting.
+11. Load arbitrarily complex object-relational data.
+12. Use secondary data files for loading LOBs and collections.
+13. Use conventional, direct path, or external table loads.
+
+### Let us start with example of sql *loader to understand it better
+
 1. Create a directory and place .ctl and .csv file
 
 2. Using table creation script create table
