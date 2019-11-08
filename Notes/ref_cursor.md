@@ -43,7 +43,7 @@ To retrieve each row of information from the cursor, I used a loop together with
       exit when c_emp%notfound;
       dbms_output.put_line(en);
   end loop;
-```sql
+```
 
 Finally closed the cursor using the following statement:  
 ```sql
