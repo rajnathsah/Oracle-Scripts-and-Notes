@@ -1,28 +1,21 @@
-Global Temporary Tables
+# Global Temporary Tables
 
-Applications often use some form of temporary data store for processes that are too complicated to complete 
-in a single pass. Often, these temporary stores are defined as database tables or PL/SQL tables. 
-In Oracle 8i, the maintenance and management of temporary tables can be delegated to the server 
-by using Global Temporary Tables.
+Applications often use some form of temporary data store for processes that are too complicated to complete in a single pass. Often, these temporary stores are defined as database tables or PL/SQL tables. This maintenance and management of temporary tables can be delegated to the server by using Global Temporary Tables.  
 
-
-The data in a global temporary table is private, such that data inserted by a session can only be 
-accessed by that session. The session-specific rows in a global temporary table can be preserved 
-for the whole session, or just for the current transaction. 
-The ON COMMIT DELETE ROWS clause indicates that the data should be deleted at the end of the transaction.
-
+The data in a global temporary table is private, such that data inserted by a session can only be accessed by that session. The session-specific rows in a global temporary table can be preserved for the whole session, or just for the current transaction. The ON COMMIT DELETE ROWS clause indicates that the data should be deleted at the end of the transaction.  
+```sql
 CREATE GLOBAL TEMPORARY TABLE my_temp_table (
   column1  NUMBER,
   column2  NUMBER
 ) ON COMMIT DELETE ROWS;--transaction spcific
-
-In contrast, the ON COMMIT PRESERVE ROWS clause indicates that rows should be preserved until the end of 
-the session.
-
+```
+In contrast, the ON COMMIT PRESERVE ROWS clause indicates that rows should be preserved until the end of the session.
+```sql
 CREATE GLOBAL TEMPORARY TABLE my_temp_table (
   column1  NUMBER,
   column2  NUMBER
 ) ON COMMIT PRESERVE ROWS; --session specific
+```
 Miscellaneous Features
 
 If the TRUNCATE statement is issued against a temporary table, only the session specific data is trucated. 
