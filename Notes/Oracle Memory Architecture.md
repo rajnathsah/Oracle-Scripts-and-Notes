@@ -1,14 +1,11 @@
-ORACLE Architecture
--------------------
+# ORACLE Architecture
 
-MEMORY STRUCTURE
+#### MEMORY STRUCTURE
 
    Software Code Areas:
       * Memory area from where Stored code executes
-
-   ------------------------
-   System global area (SGA)
-   ------------------------
+   
+   System global area (SGA)   
       * Holds the shared memory structures, for server and background processes.
       * Holds the Oracle Database instance. 
       * Holds cached data blocks and shared SQL areas.
@@ -32,10 +29,8 @@ MEMORY STRUCTURE
       Large Pool (Session Memory  and I/O Process)
       Java Pool  (For Oracle Java Stored Procs execution and handling)
       Streams Pool (For Replication with Oracle Streams)
-
-   -------------------------
-   Program Global Area (PGA)
-   -------------------------
+   
+   Program Global Area (PGA)   
       * Memory to process SQL statement
       * Memory to hold logon other session information.
       * Cursors and SQL Areas
@@ -43,11 +38,9 @@ MEMORY STRUCTURE
       * Runtime area,    Query execution state information
       * SQL work areas, For joins, group by sort operations
 
+    
+#### ORACLE STORAGE   
 
-   --------------   
-   ORACLE STORAGE
-   --------------
-   
       Oracle Data Blocks   
          * Rows are stored in datablocks 
            (Block Size can be set using DB_BLOCK_SIZE Initialization parameter).
