@@ -116,19 +116,21 @@ PL/SQL procedure successfully completed.
                       , 'NOT NULL'
                 ) null_test
     from dual;
- 
+```
+```
 NULL
 ----
 NULL
-
-
+```
+```sql
    select case null
           when null
            then 'NULL'
            else 'NOT NULL'
            end null_test
     from dual;
- 
+```
+```
 NULL_TES
 --------
 NOT NULL
@@ -142,7 +144,8 @@ select case
            else 'NOT NULL'
            end null_test
    from dual;
- 
+```
+```
 NULL_TES
 --------
 NULL
@@ -153,18 +156,22 @@ NULL
                '2','2',
                '3') t
     from dual; 
- 
+```
+```
          T
 ----------
          2 
-
+```
+```sql
  select case 2 when 1 then '1'
                 when '2' then '2'
                 else '3'
            end
     from dual;
-            when '2' then '2'
-                 *
+```
+```
+when '2' then '2'
+     *
 ERROR at line 2:
 ORA-00932: inconsistent datatypes: expected NUMBER got CHAR
 ```
@@ -177,13 +184,15 @@ ORA-00932: inconsistent datatypes: expected NUMBER got CHAR
                                  'Unknown') as department
     from   emp
     where rownum < 4;
- 
+```
+```
 ENAME      DEPARTMENT
 ---------- ----------
 SMITH      Research
 ALLEN      Sales
 WARD       Sales
- 
+```
+```sql
 select  ename, case deptno
                     when 10 then 'Accounting'
                     when 20 then 'Research'
@@ -192,7 +201,8 @@ select  ename, case deptno
                 end as department
  from emp
  where rownum < 4;
- 
+```
+```
 ENAME      DEPARTMENT
 ---------- ----------
 SMITH      Research
