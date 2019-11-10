@@ -16,7 +16,7 @@ CREATE GLOBAL TEMPORARY TABLE my_temp_table (
   column2  NUMBER
 ) ON COMMIT PRESERVE ROWS; --session specific
 ```
-Miscellaneous Features
+##### Miscellaneous Features
 
 * If the TRUNCATE statement is issued against a temporary table, only the session specific data is trucated. There is no affect on the data of other sessions.
 * Data in temporary tables is stored in temp segments in the temp tablespace.
