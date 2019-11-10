@@ -3,10 +3,10 @@
 #### MEMORY STRUCTURE
 Software Code Areas:  
 * Memory area from where Stored code executes  
-   System global area (SGA)  
-      * Holds the shared memory structures, for server and background processes.
-      * Holds the Oracle Database instance. 
-      * Holds cached data blocks and shared SQL areas.
+   * System global area (SGA)  
+     * Holds the shared memory structures, for server and background processes.
+     * Holds the Oracle Database instance. 
+     * Holds cached data blocks and shared SQL areas.
 
       Database Buffer Cache
          * Holds copies of data blocks read from datafiles
