@@ -1,11 +1,11 @@
 # AWR Report
-Points to looks for in awr report  
+#### Points to looks for in awr report  
 
 1. DB Time
 2. Instance efficiency
 3. Top 10 foreground events by wait time
 
-Method to run awr report  
+#### Method to run awr report  
 
 Move to $ORACLE_HOME/rdbms/admin and run awrrpt.sql from sys
 
@@ -19,7 +19,7 @@ report name
 
 Helps in getting session level details which may not been captured in AWR report  
 
-Points to look for in ASH report  
+#### Points to look for in ASH report  
 1. Top user events
 2. Top background events
 3. Top event p1/p2/p3 values db/inst
@@ -33,7 +33,7 @@ Points to look for in ASH report
 11. Activity over time
 
 
-Method to run awr report  
+#### Method to run awr report  
 
 Move to $ORACLE_HOME/rdbms/admin and run ashrpt.sql file  
 
