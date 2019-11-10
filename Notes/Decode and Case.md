@@ -1,19 +1,19 @@
+# Decode and Case
 DECODE and CASE statements in Oracle both provide a conditional construct, of this form:
+```
 if A = n1 then A1
 else if A = n2 then A2
 else X
-Databases before Oracle 8.1.6 had only the DECODE function. 
-CASE was introduced in Oracle 8.1.6 as a standard, more meaningful and more powerful function.
-Everything DECODE can do, CASE can. There is a lot else CASE can do though, which DECODE cannot.
+```
 
-1. CASE can work with logical operators other than ë=í
-DECODE performs an equality check only. CASE is capable of other logical comparisons such as < > etc. 
-It takes some complex coding ñ forcing ranges of data into discrete form ñ 
-to achieve the same effect with DECODE.
+* Oracle database prior to 8.1.6 only had DECODE function. 
+* CASE was introduced in Oracle 8.1.6 as a standard, more meaningful and more powerful function.
+* Everything DECODE can do, CASE can. There is a lot else CASE can do though, which DECODE cannot.
+* DECODE performs an equality check only. CASE is capable of other logical comparisons such as < > etc. 
 
-An example of putting employees in grade brackets based on their salaries. 
-This can be done elegantly with CASE.
-
+An example of putting employees in grade brackets based on their salaries.  
+This can be done elegantly with CASE.  
+```sql
 select ename,case
                when sal < 1000
                   then 'Grade I'
@@ -25,18 +25,19 @@ select ename,case
             end sal_grade
    from emp
    where rownum < 4;
- 
+```
+```sql
 ENAME      SAL_GRADE
 ---------- ---------
 SMITH      Grade I
 ALLEN      Grade II
 WARD       Grade II
+```
 
-2. CASE can work with predicates and searchable subqueries
-DECODE works with expressions that are scalar values only. CASE can work with predicates and subqueries in searchable form.
+* CASE can work with predicates and searchable subqueries, DECODE works with expressions that are scalar values only. 
+
 An example of categorizing employees based on reporting relationship, showing these two uses of CASE.
-
-
+```sql
  select e.ename,case
                 -- predicate with "in"
                 -- mark the category based on ename list
@@ -52,18 +53,17 @@ An example of categorizing employees based on reporting relationship, showing th
                 end emp_category
 from emp e
 where rownum < 5;
- 
+```
+```sql
 ENAME      EMP_CATEGORY
 ---------- -----------------
 SMITH      Top Bosses
 ALLEN      General Employees
 WARD       Top Bosses
 JONES      Managers
-
-3. CASE can work as a PL/SQL construct
-DECODE can work as a function inside SQL only. CASE can be an efficient substitute for IF-THEN-ELSE in PL/SQL.
-
-
+```
+* CASE can work as a PL/SQL construct whereas DECODE can work as a function inside SQL only. CASE can be an efficient substitute for IF-THEN-ELSE in PL/SQL.
+```sql
 declare
      grade char(1);
    begin
@@ -77,9 +77,9 @@ declare
        else dbms_output.put_line('no such grade');
     end case;
    end;
-
-4.CASE can even work as a parameter to a procedure call, while DECODE cannot.
-
+```
+* CASE can even work as a parameter to a procedure call, while DECODE cannot.
+```sql
 SQL> var a varchar2(5);
 SQL> exec :a := 'THREE';
  
@@ -108,10 +108,9 @@ SQL> exec proc_test(case :a when 'THREE' then 3 else 0 end);
 output = 3
  
 PL/SQL procedure successfully completed.
-
-5. Careful! CASE handles NULL differently
-   Check out the different results with DECODE vs NULL.
-
+```
+* Careful! CASE handles NULL differently, Check out the different results with DECODE vs NULL.
+```sql
     select decode(null
                 , null, 'NULL'
                       , 'NOT NULL'
@@ -133,9 +132,10 @@ NULL
 NULL_TES
 --------
 NOT NULL
+```
 
-The ìsearched CASEî works as does DECODE.
-
+The ‚Äúsearched CASE‚Äù works as does DECODE.
+```sql
 select case
           when null is null
            then 'NULL'
@@ -146,10 +146,9 @@ select case
 NULL_TES
 --------
 NULL
-
-6.CASE expects datatype consistency, DECODE does not
-Compare the two examples below- DECODE gives you a result, CASE gives a datatype mismatch error.
-
+```
+* CASE expects datatype consistency, DECODE does not compare the two examples below- DECODE gives you a result, CASE gives a datatype mismatch error.
+```sql
  select decode(2,1,1,
                '2','2',
                '3') t
@@ -168,14 +167,10 @@ Compare the two examples below- DECODE gives you a result, CASE gives a datatype
                  *
 ERROR at line 2:
 ORA-00932: inconsistent datatypes: expected NUMBER got CHAR
-
-7.CASE is ANSI SQL-compliant
-CASE complies with ANSI SQL. DECODE is proprietary to Oracle.
-
-
-8.The difference in readability
-In very simple situations, DECODE is shorter and easier to understand than CASE.
-
+```
+* CASE is ANSI SQL-compliant, CASE complies with ANSI SQL. DECODE is proprietary to Oracle.
+* The difference in readability, In very simple situations, DECODE is shorter and easier to understand than CASE.
+```sql
     select ename,decode (deptno, 10, 'Accounting',
                                  20, 'Research',
                                  30, 'Sales',
@@ -203,11 +198,5 @@ ENAME      DEPARTMENT
 SMITH      Research
 ALLEN      Sales
 WARD       Sales
-
-
+```
 Complicated logical comparisons in DECODE, even if technically achievable, are a recipe for messy, bug-prone code. When the same can be done more cleanly with CASE, go for CASE
-
-
-
-
-
