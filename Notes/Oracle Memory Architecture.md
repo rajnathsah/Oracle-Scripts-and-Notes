@@ -4,61 +4,44 @@
 Software Code Areas:  
 * Memory area from where Stored code executes  
    * System global area (SGA)  
-     * Holds the shared memory structures, for server and background processes.
-     * Holds the Oracle Database instance. 
-     * Holds cached data blocks and shared SQL areas.
-
-      Database Buffer Cache
-         * Holds copies of data blocks read from datafiles
-         * LRU(Least recently used) Lists, MRU(Most recently used),
-           Pinned Buffers (Currently in use buffer locations), Free Buffers
-
-      Redo Log Buffer
-         * All DML /DDL entries are copied from the user's memory space to the redo
-           log buffer in the SGA. Which is continuous and sequential buffer sequence.
-           A background process LGWR(LogWriter) writes the redo log buffer to the 
-           active redo log file (on disk).
-
-      Shared Pool
-         * Library Cache, Dictionary Cache, Result Cache
-         * Shared area for all SQL PL/SQL executions and result cache
-           (to use common execution data elements)
-
-      Large Pool (Session Memory  and I/O Process)
-      Java Pool  (For Oracle Java Stored Procs execution and handling)
-      Streams Pool (For Replication with Oracle Streams)
-   
-   Program Global Area (PGA)   
+      * Holds the shared memory structures, for server and background processes.
+      * Holds the Oracle Database instance. 
+      * Holds cached data blocks and shared SQL areas.
+   * Database Buffer Cache
+      * Holds copies of data blocks read from datafiles
+      * LRU(Least recently used) Lists, MRU(Most recently used),Pinned Buffers (Currently in use buffer locations), Free Buffers
+   * Redo Log Buffer
+      * All DML /DDL entries are copied from the user's memory space to the redo log buffer in the SGA. Which is continuous and sequential buffer sequence.A background process LGWR(LogWriter) writes the redo log buffer to the active redo log file (on disk).
+   * Shared Pool
+      * Library Cache, Dictionary Cache, Result Cache
+      * Shared area for all SQL PL/SQL executions and result cache (to use common execution data elements)
+   * Large Pool (Session Memory  and I/O Process)
+   * Java Pool  (For Oracle Java Stored Procs execution and handling)
+   * Streams Pool (For Replication with Oracle Streams)   
+   * Program Global Area (PGA)   
       * Memory to process SQL statement
       * Memory to hold logon other session information.
       * Cursors and SQL Areas
       * Persistent area, This area contains bind variable values
-      * Runtime area,    Query execution state information
+      * Runtime area, Query execution state information
       * SQL work areas, For joins, group by sort operations
-
     
-#### ORACLE STORAGE   
-
-      Oracle Data Blocks   
-         * Rows are stored in datablocks 
-           (Block Size can be set using DB_BLOCK_SIZE Initialization parameter).
-         * Each block has Header info, Row Data (PCTUSED) and Free Space(PCTFREE)
-         * PCTUSED: Percentage of the block that can be used for the row insert.
-         * PCTFREE: Percentage of the block that can be used for the row update.
-         * Row Chaining, row spanning across multiple blocks.
-      
-      Oracle Extents
-         * Logical unit of database storage space allocation made up of a number of contiguous data blocks.
-         * To dealloate space use the statement: ALTER TABLE table_name DEALLOCATE UNUSED;
-         * INITIAL, NEXT, PCTINCREASE and MINEXTENTS, Size parameters for Extents
-
-      Oracle Segments
-         * Set of extents for a specific logical storage structure (Table, Materialized View) in a tablespace.
-
-      Temp Segment
-         * Temporary workspace for intermediate stages of SQL statement parsing and execution.
-         * CREATE INDEX, GROUP BY, ORDER BY, Select Distinct, UNION, INTERSECT, MINUS.
-         * As a SQL statement is also a logical storage structure (temporarily untill its executed).
-         
-      Undo Segment
-         * ROLLBACK data is saved here untill a commit is issued.
+#### ORACLE STORAGE
+   * Oracle Data Blocks  
+      * Rows are stored in datablocks (Block Size can be set using DB_BLOCK_SIZE Initialization parameter).
+      * Each block has Header info, Row Data (PCTUSED) and Free Space(PCTFREE)
+      * PCTUSED: Percentage of the block that can be used for the row insert.
+      * PCTFREE: Percentage of the block that can be used for the row update.
+      * Row Chaining, row spanning across multiple blocks.      
+   * Oracle Extents
+      * Logical unit of database storage space allocation made up of a number of contiguous data blocks.
+      * To dealloate space use the statement: ALTER TABLE table_name DEALLOCATE UNUSED;
+      * INITIAL, NEXT, PCTINCREASE and MINEXTENTS, Size parameters for Extents
+   * Oracle Segments
+      * Set of extents for a specific logical storage structure (Table, Materialized View) in a tablespace.
+   * Temp Segment
+      * Temporary workspace for intermediate stages of SQL statement parsing and execution.
+      * CREATE INDEX, GROUP BY, ORDER BY, Select Distinct, UNION, INTERSECT, MINUS.
+      * As a SQL statement is also a logical storage structure (temporarily untill its executed).
+   * Undo Segment
+      * ROLLBACK data is saved here untill a commit is issued.
