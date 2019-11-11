@@ -91,7 +91,7 @@ END LOOP;
 END;
 ```
 
-### collection methods
+### Collection methods
 * exists
 * count
 * limit
