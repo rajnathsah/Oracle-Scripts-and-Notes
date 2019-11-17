@@ -1,5 +1,5 @@
 # Decode and Case
-DECODE and CASE statements in Oracle both provide a conditional construct, of this form:
+DECODE and CASE statements (in Oracle) provides a conditional construct, of this form:
 ```
 if A = n1 then A1
 else if A = n2 then A2
