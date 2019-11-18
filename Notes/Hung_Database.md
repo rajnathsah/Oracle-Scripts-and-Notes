@@ -1,4 +1,4 @@
-# Points to check when database is hung
+# Points to check when Oracle database is in hung state
 1. Check your alert log to see if the database has reported any errors, which may indicate why the database is hanging.  
 2. See if you can get an AWR or ASH report or query some of the ASH views. You may notice events such as hard parses at the top of the Load Profile section of the AWR report, indicating that this is what is slowing down the database.  
 3. A single ad hoc query certainly has the potential to bring an entire database to its knees. See if you can identify one or more very poorly performing SQL statements that may be leading to the hung (or a very poorly performing) database.  
