@@ -42,4 +42,11 @@ tkprof <trace_file_name> <output_file_name>
 For more details on trace file formatting, Please refer Oracle database [link](https://docs.oracle.com/cd/E11882_01/server.112/e41573/sqltrace.htm#PFGRF94985)
 
 ### What to look for in trace file?
+* Statistics
+* Row source operations
+* Wait event information
+* Resolution of statistics
+* Library cache misses
+* Execution plan
+For more details on how to interpret TKPROF output, refer [interpret trace file](https://docs.oracle.com/cd/E11882_01/server.112/e41573/sqltrace.htm#PFGRF94992)
 
