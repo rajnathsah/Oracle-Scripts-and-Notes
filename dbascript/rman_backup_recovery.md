@@ -41,19 +41,19 @@ RMAN> CONFIGURE RETENTION POLICY TO RECOVERY WINDOW OF 7 DAYS;
 RMAN> CONFIGURE RETENTION POLICY CLEAR;
 ```
 6. Backup the database
-  * Backup without archive logs
+  *  Backup without archive logs
 ```sql
 RMAN> BACKUP AS BACKUPSET DATABASE
 ```
-  * Backup with archive logs
+  *  Backup with archive logs
 ```sql
 RMAN> BACKUP AS BACKUPSET DATABASE PLUS ARCHIVELOG;
 ```
-  * Backup specific tablespace
+  *  Backup specific tablespace
 ```sql
 RMAN> BACKUP AS BACKUPSET TABLESPACE PRD01;
 ```
-  * For easy identification, backup can be tagged also
+  *  For easy identification, backup can be tagged also
 ```sql
 BACKUP AS BACKUPSET TAG 'WEEEKLY_PRD01_TBLS_BK_ONLY' TABLESPACE PRD01;
 ```
