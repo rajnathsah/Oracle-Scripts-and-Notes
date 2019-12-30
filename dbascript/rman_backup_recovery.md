@@ -40,8 +40,8 @@ RMAN> CONFIGURE RETENTION POLICY TO RECOVERY WINDOW OF 7 DAYS;
 ```sql
 RMAN> CONFIGURE RETENTION POLICY CLEAR;
 ```
-6. Backup the database  
-  * Backup without archive logs  
+6. Backup the database
+  *  Backup without archive logs  
 ```sql
 RMAN> BACKUP AS BACKUPSET DATABASE
 ```
