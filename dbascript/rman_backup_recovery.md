@@ -49,7 +49,7 @@ RMAN> BACKUP AS BACKUPSET DATABASE
 ```sql
 RMAN> BACKUP AS BACKUPSET DATABASE PLUS ARCHIVELOG;
 ```
-  *  Backup specific tablespace  
+  * Backup specific tablespace  
 ```sql
 RMAN> BACKUP AS BACKUPSET TABLESPACE PRD01;
 ```
