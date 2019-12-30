@@ -1,7 +1,7 @@
 # RMAN
 Recovery Manager (RMAN) is an Oracle Database client that performs backup and recovery tasks on your databases and automates administration of your backup strategies. It greatly simplifies backing up, restoring, and recovering database files.
 
-# Backup and recovery using RMAN
+# Backup and Recovery using RMAN
 
 #### Connect to RMAN
 1. Using rman keyword followed by connect target keyword
@@ -65,3 +65,55 @@ $ls -l /backup/rman
 ```sql
 RMAN> LIST BACKUP SUMMARY;
 ```
+#### RMAN recovery
+1. Restore controlfile from backup
+```sql
+RMAN> STARTUP NOMOUNT;
+RMAN> RESTORE CONTROLFILE FROM "/backup/rman/ctl_c-12345-20191212-03";
+RMAN> ALTER DATABASE MOUNT;
+```
+2. Restore controlfile based on tag
+```sql
+RMNAN> RESTORE CONTROLFILE FROM TAG 'WEEKLY_FULL_BKUP';
+```
+3. Restore controlfile from autobackup
+```sql
+RMNAN> RESTORE CONTROLFILE FROM AUTOBACKUP;
+```
+4. Restore the database
+```sql
+RMAN> RESTORE DATABASE;
+```
+5. In case controlfiles are restored from backup then use below command
+```sql
+RMAN> RECOVER DATABASE;
+RMAN> ALTER DATABASE OPEN RESETLOGS;
+```
+6. Restore specific tablespace
+```sql
+RMNAN> RESTORE TABLESPACE dev1;
+RMNAN> RESTORE TABLESPACE dev1, dev2; # restoring multiple tablespaces
+```
+7. Restore specific datafiles
+```sql
+RMNAN> RESTORE DATAFILE '/u01/oradata/devdb/dev1_01.dbf'
+RMNAN> RESTORE DATAFILE '/u01/oradata/devdb/dev1_01.dbf', '/u01/oradata/devdb/dev1_02.dbf' # restoring multiple datafiles
+```
+8. Restore archived redo logs
+```sql
+RMNAN> RESTORE ARCHIVELOG ALL;
+```
+9. Preview the restore
+```sql
+RMAN> RESTORE DATABASE PREVIEW;
+```
+10. Preview summary of restore
+```sql
+RMAN> RESTORE DATABASE PREVIEW SUMMARY;
+```
+11. Validate the backup before restore
+```sql
+RMAN> RESTORE DATABASE VALIDATE;
+```
+
+Happy Learning!
