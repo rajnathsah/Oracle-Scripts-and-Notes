@@ -38,4 +38,10 @@ select * from nls_database_parameters  where parameter='NLS_CHARACTERSET';
 expdp system/manager@orcl schemas=SCOTT directory=DATA_PUMP_DIR dumpfile=SCOTT.dmp logfile=expdpSCOTT.log
 ```
 
-7.  Navigate to the backup path and verify dump file and log file.  
+7. In case database size is big, it is better to split the dump file
+```sql
+expdp system/manager@orcl schemas=SCOTT directory=DATA_PUMP_DIR dumpfile=test_dump%u.dmp filesize=20m logfile=expdpSCOTT.log
+```
+In this case, max size of dump file would be 20mb, test_dump%u.dmp will generate dumple file name appending file name as test_dump_01.dmp, test_dump_02.dmp .. etc.  
+
+8.  Navigate to the backup path and verify dump file and log file.  
