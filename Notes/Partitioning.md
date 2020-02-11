@@ -24,4 +24,22 @@ PARTITION BY RANGE(empno) (
   partition e3 values less than (MAXVALUE)
 ); 
 ```
-Here MAXVALUE is provided as a catch-all for values that exceed all ranges specified. Note that Oracle sorts NULLs greater than all other values, except MAXVALUE.
+Here MAXVALUE is provided as a catch-all for values that exceed all ranges specified. Note that Oracle sorts NULLs greater than all other values, except MAXVALUE.  
+
+## Hash partitioning
+Hash partitioning is a partitioning technique where a hash key is used to distribute rows evenly across the different partitions (sub-tables). This is typically used where ranges aren't appropriate.  
+
+Example:
+```sql
+create table emp (
+   empno number(4), 
+   ename varchar2(30), 
+   sal   number
+) 
+partition by hash(empno) (
+  partition e1, 
+  partition e2, 
+  partition e3,
+  partition e4
+);
+```
