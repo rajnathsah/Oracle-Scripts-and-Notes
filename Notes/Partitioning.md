@@ -43,3 +43,20 @@ partition by hash(empno) (
   partition e4
 );
 ```
+
+## List partitioning
+List partitioning is a partitioning technique where you specify a list of discrete values for the partitioning key in the description for each partition.  
+
+Example:  
+```sql
+create table emp (
+       emp#     number primary key,
+       ename    varchar2(30),
+       salary   number(8,2),
+       deptno   number)
+  partition by list (deptno) (  
+       partition p10 values (10), 
+       partition p20 values (20), 
+       partition p30 values (30,40),
+       partition p40 values (default));
+```
