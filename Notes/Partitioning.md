@@ -60,3 +60,25 @@ create table emp (
        partition p30 values (30,40),
        partition p40 values (default));
 ```
+
+## Interval partitioning
+Interval partitioning is a partitioning method introduced in Oracle 11g. This is a helpful addition to range partitioning where Oracle automatically creates a partition when the inserted value exceeds all other partition ranges.
+
+The following restrictions apply:  
+*  You can only specify one partitioning key column, and it must be of NUMBER or DATE type.
+*  Interval partitioning is NOT supported for index-organized tables.
+*  You can NOT create a domain index on an interval-partitioned table.  
+
+Example:  
+```sql
+create table emp
+    (sno number(6),
+    last_name varchar2(30),
+    salary number(6))
+partition by range(salary)
+    Interval  (5000)
+(partition p1 values less than (5000),
+partition p2 values less than (10000),
+partition p3 values less than (15000),
+partition p4 values less than (20000));
+```
